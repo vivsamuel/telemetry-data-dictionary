@@ -1,4 +1,3 @@
-
 name: Deploy React App to GitHub Pages
 
 on:
@@ -31,11 +30,14 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: frontend/package-lock.json
 
       - name: Install dependencies
+        working-directory: ./frontend
         run: npm ci
 
       - name: Build React app
+        working-directory: ./frontend
         run: npm run build
 
       - name: Configure GitHub Pages
@@ -44,7 +46,7 @@ jobs:
       - name: Upload build
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist
+          path: ./frontend/dist
 
       - name: Deploy website
         id: deployment
