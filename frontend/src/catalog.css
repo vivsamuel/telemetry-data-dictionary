@@ -21,3 +21,6 @@
 .catalog-app .hero-content{width:68%}
 @media(max-width:1050px){.catalog-app .hero-content{width:78%}}
 @media(max-width:700px){.catalog-app .hero-content{width:100%}}
+/* Keep the three Overview quick links evenly spaced in their card. */
+@media (min-width:1051px){.catalog-app .browse .quick-card{display:flex;flex-direction:column}.catalog-app .browse .quick-card button{flex:1;min-height:0}}
+@media (min-width:701px) and (max-width:1050px){.catalog-app .browse .quick-card{grid-template-columns:repeat(3,minmax(0,1fr))}.catalog-app .browse .quick-card h2{grid-column:1/-1}}

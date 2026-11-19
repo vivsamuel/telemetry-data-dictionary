@@ -3,7 +3,7 @@ import './App.css'
 
 const areas = [['◇','Opening Up','312'],['🛒','Express Listings','286'],['▦','Create Listings','412'],['♧','Grouping Management','134']]
 const types = [['▤','Page Impression','Page views (landing, success, etc.)'],['▦','Module Impression','Module/section visibility'],['↖','Click','User interactions (buttons, CTAs, icons)']]
-const links = [['＋','Create a Tracking Plan'],['▣','Event Naming Standards'],['▤','Property Catalog'],['⌘','Instrumentation Guidelines'],['⬡','Validation Workflow']]
+const links = [['＋','Create a Tracking Plan'],['▣','Event Naming Standards'],['⌘','Instrumentation Guidelines']]
 const events = [
   ['create_listing_click','User clicks on “Create Listing” button','Click','Create Listings','Sep 29, 2026','Validated'],
   ['draft_save_click','User saves a listing as draft','Click','Create Listings','Sep 29, 2026','In Progress'],
