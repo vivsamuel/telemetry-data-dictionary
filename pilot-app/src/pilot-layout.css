@@ -33,3 +33,26 @@
 .properties-page .properties-table th:nth-child(6),.properties-page .properties-table td:nth-child(6){min-width:185px;white-space:nowrap}
 .properties-page .properties-table th:nth-child(7),.properties-page .properties-table td:nth-child(7){min-width:220px}
 .properties-page .properties-table .gray-pill,.properties-page .properties-table .catalog-badge{display:inline-block;white-space:nowrap;max-width:none}
+
+/* Give event specifications and JSON payloads room beside the catalog. */
+@media (min-width:1151px){.event-page{grid-template-columns:minmax(0,4fr) minmax(560px,6fr)}}
+@media (max-width:1150px){.event-page{grid-template-columns:minmax(0,1fr);padding-right:18px}.event-page .event-detail{margin-top:0;border-radius:12px}}
+.event-page .event-detail .detail-title h2{overflow-wrap:anywhere}
+.event-page .event-detail .detail-section pre{overflow-x:auto;white-space:pre;font-size:12px;line-height:1.5}
+
+.pilot-home .area-list button.area-selected{background:#edf4ff;color:#064fda}
+.pilot-home .area-details-card{overflow:hidden}
+.pilot-home .area-details h3{font-size:17px;margin:5px 0 8px;color:#0c1b3e}
+.pilot-home .area-details p,.pilot-home .area-details-empty{font-size:14px;line-height:1.45;color:#40516f}
+.pilot-home .area-details-empty{margin-top:30px;max-width:340px}
+.pilot-home .area-details dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0 0}
+.pilot-home .area-details dl div{background:#f3f7ff;border-radius:8px;padding:9px 11px;min-width:0}
+.pilot-home .area-details dt{font-size:11px;color:#61718e;margin-bottom:4px}
+.pilot-home .area-details dd{font-size:13px;font-weight:700;color:#0d2e69;margin:0;overflow-wrap:anywhere}
+.pilot-home .event-filter-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-2px 0 15px}
+.pilot-home .event-filter-bar>span{font-size:13px;font-weight:700;color:#344461;margin-right:4px}
+.pilot-home .event-filter-bar button{border:1px solid #ccd8e9;border-radius:20px;background:#fff;color:#24395e;padding:7px 12px;font-size:13px;font-weight:600}
+.pilot-home .event-filter-bar button:hover{background:#f1f6ff}
+.pilot-home .event-filter-bar button.active{background:#e8f1ff;color:#0755d9;border-color:#78aaff}
+.pilot-home .event-filter-bar small{font-size:11px;margin-left:5px;color:inherit}
+@media(max-width:700px){.pilot-home .area-details dl{grid-template-columns:repeat(2,minmax(0,1fr))}}
