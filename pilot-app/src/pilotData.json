@@ -1,0 +1,569 @@
+{
+  "sourceWorkbook": "seller-landing-page-review-import_pilot.xlsx",
+  "plan": {
+    "Product and URL": "eBay Live seller landing page | https://www.ebay.com/ebaylive/seller | US",
+    "Business goal": "Understand visits and engagement that lead sellers toward registration",
+    "KPIs": "KPI_1: Landing-to-registration click rate; KPI_2: Landing to Waitlist click rate; KPI_3: Landing to Get started click rate; KPI_4: Seller-story engagement rate (CTR); KPI_5: UTM source ; KPI_6: Explore pricing CTR; KPI_7: Visitors by page version (audience version)",
+    "Plan ID and version": "Ebaylive_seller_landingpage_v0.1",
+    "Platforms": "Dweb",
+    "Owners": "Product: Ivette Tang | Analytics: Anirudha Patil, Kartikaya Purohit, Vivek Samuel | Engineering: Mike Hobizal, John Brown, Priyanka Gala",
+    "Telemetry Review": "Roopa Penmetsa",
+    "Source document": "seller-landing-page-pilot-tracking-plan_pilot.docx",
+    "Status": "Approved"
+  },
+  "events": [
+    {
+      "ID": "E01",
+      "Event key (proposed)": "seller_landing_page_view",
+      "Trigger": "Landing page load",
+      "Family / action / kind": "LIVECOMM / NODE_PAGE_IMP",
+      "cp": "4431659",
+      "sid in document": "",
+      "Moduledtl in document": "186180, 186181, 186203–186207",
+      "Properties in document": "version: logged_out / logged_in_ineligible / logged_in_eligible",
+      "Validation claim": "Validated",
+      "Engineering state": "Implemented",
+      "Evidence state": "Evidence pending",
+      "Review note": ""
+    },
+    {
+      "ID": "E02",
+      "Event key (proposed)": "seller_register_now_click",
+      "Trigger": "Register Now pin or module",
+      "Family / action / kind": "LIVECOMM / ACTN / CLICK",
+      "cp": "4431659",
+      "sid in document": "",
+      "Moduledtl in document": "",
+      "Properties in document": "sid",
+      "Validation claim": "Validated",
+      "Engineering state": "Implemented",
+      "Evidence state": "Evidence pending",
+      "Review note": ""
+    },
+    {
+      "ID": "E03",
+      "Event key (proposed)": "seller_explore_pricing_click",
+      "Trigger": "Explore Pricing pin",
+      "Family / action / kind": "LIVECOMM / ACTN / CLICK",
+      "cp": "4431659",
+      "sid in document": "p4431659.m186180.l211158",
+      "Moduledtl in document": "",
+      "Properties in document": "sid",
+      "Validation claim": "Validated",
+      "Engineering state": "Implemented",
+      "Evidence state": "Evidence pending",
+      "Review note": ""
+    },
+    {
+      "ID": "E04",
+      "Event key (proposed)": "seller_story_click",
+      "Trigger": "Story card click",
+      "Family / action / kind": "LIVECOMM / ACTN / CLICK",
+      "cp": "4431659",
+      "sid in document": "p4431659.m186181.l211159",
+      "Moduledtl in document": "",
+      "Properties in document": "position; sellerName [DECIDE]; articleId not required per note",
+      "Validation claim": "Validated",
+      "Engineering state": "Implemented",
+      "Evidence state": "Evidence pending",
+      "Review note": "sellerName decision remains in event row despite plan-level decision marked Done."
+    },
+    {
+      "ID": "E05",
+      "Event key (proposed)": "seller_story_page_view",
+      "Trigger": "Seller story page load",
+      "Family / action / kind": "LIVECOMM / PAGEIMP",
+      "cp": "4685704",
+      "sid in document": "",
+      "Moduledtl in document": "186199–186202",
+      "Properties in document": "sellerName [DECIDE]; articleId not required per note",
+      "Validation claim": "Validated",
+      "Engineering state": "Implemented",
+      "Evidence state": "Evidence pending",
+      "Review note": "sellerName decision remains in event row despite plan-level decision marked Done."
+    },
+    {
+      "ID": "E06",
+      "Event key (proposed)": "seller_event_card_click",
+      "Trigger": "Individual event card click",
+      "Family / action / kind": "LIVECOMM / ACTN / CLICK",
+      "cp": "4431659",
+      "sid in document": "p4431659.m186206.l159969",
+      "Moduledtl in document": "",
+      "Properties in document": "eventId; eventCardPosition; sid",
+      "Validation claim": "Validated",
+      "Engineering state": "Implemented",
+      "Evidence state": "Evidence pending",
+      "Review note": "Changed from not instrumented in source proposal; verify observed trace."
+    },
+    {
+      "ID": "E07",
+      "Event key (proposed)": "seller_faq_expand",
+      "Trigger": "FAQ question expand/collapse",
+      "Family / action / kind": "LIVECOMM / ACTN / EXPAND-COLLAPSE",
+      "cp": "4431659",
+      "sid in document": "p4431659.m186207.l211162",
+      "Moduledtl in document": "",
+      "Properties in document": "faqId [PENDING]",
+      "Validation claim": "Validated",
+      "Engineering state": "Implemented",
+      "Evidence state": "Evidence pending",
+      "Review note": "faqId pending."
+    },
+    {
+      "ID": "E08",
+      "Event key (proposed)": "seller_waitlist_click",
+      "Trigger": "Join the waitlist",
+      "Family / action / kind": "LIVECOMM / ACTN / CLICK",
+      "cp": "4431659",
+      "sid in document": "",
+      "Moduledtl in document": "",
+      "Properties in document": "sid; version [CONFIRM]",
+      "Validation claim": "Validated",
+      "Engineering state": "Implemented",
+      "Evidence state": "Evidence pending",
+      "Review note": "Confirm version property on clicks."
+    },
+    {
+      "ID": "E09",
+      "Event key (proposed)": "seller_get_started_click",
+      "Trigger": "Get started",
+      "Family / action / kind": "LIVECOMM / ACTN / CLICK",
+      "cp": "4431659",
+      "sid in document": "",
+      "Moduledtl in document": "",
+      "Properties in document": "sid; version [CONFIRM]",
+      "Validation claim": "Validated",
+      "Engineering state": "Implemented",
+      "Evidence state": "Evidence pending",
+      "Review note": "Confirm version property on clicks."
+    }
+  ],
+  "properties": [
+    {
+      "Property": "version",
+      "Type and allowed values": "String: logged_out; logged_in_ineligible; logged_in_eligible",
+      "Required and decision": "Required on landing page view; [CONFIRM ON CLICKS]",
+      "Review state": "Review required"
+    },
+    {
+      "Property": "sid",
+      "Type and allowed values": "String: registered placement identifier",
+      "Required and decision": "Required on clicks; [CONFIRM EXACT CASING sid vs Sid]",
+      "Review state": "Review required"
+    },
+    {
+      "Property": "Moduledtl",
+      "Type and allowed values": "Array of registered module IDs",
+      "Required and decision": "Required for applicable page impressions; confirm mappings",
+      "Review state": "Review required"
+    },
+    {
+      "Property": "position",
+      "Type and allowed values": "Integer",
+      "Required and decision": "Story/module position;",
+      "Review state": "Document supplied"
+    },
+    {
+      "Property": "eventId",
+      "Type and allowed values": "Alphanumeric",
+      "Required and decision": "Required for event card click; source value pending",
+      "Review state": "Review required"
+    },
+    {
+      "Property": "eventCardPosition",
+      "Type and allowed values": "Integer",
+      "Required and decision": "Required for event card click; source value pending",
+      "Review state": "Review required"
+    },
+    {
+      "Property": "faqId",
+      "Type and allowed values": "Integer",
+      "Required and decision": "Required for FAQ interaction; source value pending",
+      "Review state": "Review required"
+    },
+    {
+      "Property": "sellername",
+      "Type and allowed values": "regex",
+      "Required and decision": "[DECIDE IF NEEDED AND PRIVACY REVIEW]",
+      "Review state": "Needs explicit regex pattern and privacy decision."
+    }
+  ],
+  "eventProperties": [
+    {
+      "Event ID": "E01",
+      "Property": "version",
+      "Required state": "Required",
+      "Review note": "Audience version is an event property; confirm exact payload key."
+    },
+    {
+      "Event ID": "E01",
+      "Property": "Moduledtl",
+      "Required state": "Required",
+      "Review note": "Registered module IDs listed on Plan and Placements."
+    },
+    {
+      "Event ID": "E02",
+      "Property": "sid",
+      "Required state": "Required",
+      "Review note": "One row per placement should be verified."
+    },
+    {
+      "Event ID": "E03",
+      "Property": "sid",
+      "Required state": "Required",
+      "Review note": "Document has exact sid."
+    },
+    {
+      "Event ID": "E04",
+      "Property": "sid",
+      "Required state": "Required",
+      "Review note": "Document has exact sid."
+    },
+    {
+      "Event ID": "E04",
+      "Property": "position",
+      "Required state": "To confirm",
+      "Review note": "Document says position; definition still needed."
+    },
+    {
+      "Event ID": "E04",
+      "Property": "sellername",
+      "Required state": "To decide",
+      "Review note": "Document retains this event-level decision."
+    },
+    {
+      "Event ID": "E05",
+      "Property": "Moduledtl",
+      "Required state": "Required",
+      "Review note": "Story page module IDs listed."
+    },
+    {
+      "Event ID": "E05",
+      "Property": "sellername",
+      "Required state": "To decide",
+      "Review note": "Document retains this event-level decision."
+    },
+    {
+      "Event ID": "E06",
+      "Property": "eventId",
+      "Required state": "Required",
+      "Review note": "Observed value pending."
+    },
+    {
+      "Event ID": "E06",
+      "Property": "eventCardPosition",
+      "Required state": "Required",
+      "Review note": "Observed value pending."
+    },
+    {
+      "Event ID": "E06",
+      "Property": "sid",
+      "Required state": "Required",
+      "Review note": "Document has exact sid."
+    },
+    {
+      "Event ID": "E07",
+      "Property": "faqId",
+      "Required state": "To confirm",
+      "Review note": "Document marks value pending."
+    },
+    {
+      "Event ID": "E07",
+      "Property": "sid",
+      "Required state": "Required",
+      "Review note": "Document has exact sid."
+    },
+    {
+      "Event ID": "E08",
+      "Property": "sid",
+      "Required state": "Required",
+      "Review note": "Placement rows below."
+    },
+    {
+      "Event ID": "E08",
+      "Property": "version",
+      "Required state": "To confirm",
+      "Review note": "Audience version may need event property."
+    },
+    {
+      "Event ID": "E09",
+      "Property": "sid",
+      "Required state": "Required",
+      "Review note": "Placement rows below."
+    },
+    {
+      "Event ID": "E09",
+      "Property": "version",
+      "Required state": "To confirm",
+      "Review note": "Audience version may need event property."
+    }
+  ],
+  "placements": [
+    {
+      "Placement group": "Seller landing page",
+      "ID source": "Moduledtl",
+      "ID": "186180",
+      "Module name": "sellernavmodule",
+      "Audience or source note": "Registered in Braavos per user document",
+      "Document entry": "Moduledtl 186180, 186181, 186203, 186204, 186205, 186206, 186207"
+    },
+    {
+      "Placement group": "Seller landing page",
+      "ID source": "Moduledtl",
+      "ID": "186181",
+      "Module name": "sellerstorymodule",
+      "Audience or source note": "Registered in Braavos per user document",
+      "Document entry": "Moduledtl 186180, 186181, 186203, 186204, 186205, 186206, 186207"
+    },
+    {
+      "Placement group": "Seller landing page",
+      "ID source": "Moduledtl",
+      "ID": "186203",
+      "Module name": "sellerpagebanner",
+      "Audience or source note": "Registered in Braavos per user document",
+      "Document entry": "Moduledtl 186180, 186181, 186203, 186204, 186205, 186206, 186207"
+    },
+    {
+      "Placement group": "Seller landing page",
+      "ID source": "Moduledtl",
+      "ID": "186204",
+      "Module name": "sellerbannercarouselmodule",
+      "Audience or source note": "Registered in Braavos per user document",
+      "Document entry": "Moduledtl 186180, 186181, 186203, 186204, 186205, 186206, 186207"
+    },
+    {
+      "Placement group": "Seller landing page",
+      "ID source": "Moduledtl",
+      "ID": "186205",
+      "Module name": "sellerphonebannermodule",
+      "Audience or source note": "Registered in Braavos per user document",
+      "Document entry": "Moduledtl 186180, 186181, 186203, 186204, 186205, 186206, 186207"
+    },
+    {
+      "Placement group": "Seller landing page",
+      "ID source": "Moduledtl",
+      "ID": "186206",
+      "Module name": "sellereventsmodule",
+      "Audience or source note": "Registered in Braavos per user document",
+      "Document entry": "Moduledtl 186180, 186181, 186203, 186204, 186205, 186206, 186207"
+    },
+    {
+      "Placement group": "Seller landing page",
+      "ID source": "Moduledtl",
+      "ID": "186207",
+      "Module name": "sellerFAQmodule",
+      "Audience or source note": "Registered in Braavos per user document",
+      "Document entry": "Moduledtl 186180, 186181, 186203, 186204, 186205, 186206, 186207"
+    },
+    {
+      "Placement group": "Seller story page",
+      "ID source": "Moduledtl",
+      "ID": "186199",
+      "Module name": "sellerstoryheromodule",
+      "Audience or source note": "Registered in Braavos per user document",
+      "Document entry": "cp 4685704; Moduledtl 186199, 186200, 186201, 186202"
+    },
+    {
+      "Placement group": "Seller story page",
+      "ID source": "Moduledtl",
+      "ID": "186200",
+      "Module name": "sellerstoryarticlemodule",
+      "Audience or source note": "Registered in Braavos per user document",
+      "Document entry": "cp 4685704; Moduledtl 186199, 186200, 186201, 186202"
+    },
+    {
+      "Placement group": "Seller story page",
+      "ID source": "Moduledtl",
+      "ID": "186201",
+      "Module name": "sellerstoryquotemodule",
+      "Audience or source note": "Registered in Braavos per user document",
+      "Document entry": "cp 4685704; Moduledtl 186199, 186200, 186201, 186202"
+    },
+    {
+      "Placement group": "Seller story page",
+      "ID source": "Moduledtl",
+      "ID": "186202",
+      "Module name": "sellerstorycarouselmodule",
+      "Audience or source note": "Registered in Braavos per user document",
+      "Document entry": "cp 4685704; Moduledtl 186199, 186200, 186201, 186202"
+    },
+    {
+      "Placement group": "“Register Now” placements",
+      "ID source": "sid",
+      "ID": "p4431659.m186180.l211043",
+      "Module name": "sellernavmodule",
+      "Audience or source note": "logged_out",
+      "Document entry": "sid ; p4431659.m186180.l211043 p4431659.m186203.l211043; p4431659.m186205.l211043"
+    },
+    {
+      "Placement group": "“Register Now” placements",
+      "ID source": "sid",
+      "ID": "p4431659.m186203.l211043",
+      "Module name": "sellerpagebanner",
+      "Audience or source note": "logged_out",
+      "Document entry": "sid ; p4431659.m186180.l211043 p4431659.m186203.l211043; p4431659.m186205.l211043"
+    },
+    {
+      "Placement group": "“Register Now” placements",
+      "ID source": "sid",
+      "ID": "p4431659.m186205.l211043",
+      "Module name": "sellerphonebannermodule",
+      "Audience or source note": "logged_out",
+      "Document entry": "sid ; p4431659.m186180.l211043 p4431659.m186203.l211043; p4431659.m186205.l211043"
+    },
+    {
+      "Placement group": "“Join the Waitlist” placements",
+      "ID source": "sid",
+      "ID": "p4431659.m186180.l211043",
+      "Module name": "sellernavmodule",
+      "Audience or source note": "logged_in_ineligible",
+      "Document entry": "sid ; p4431659.m186180.l211043; p4431659.m186203.l211043; p4431659.m186205.l211043"
+    },
+    {
+      "Placement group": "“Join the Waitlist” placements",
+      "ID source": "sid",
+      "ID": "p4431659.m186203.l211043",
+      "Module name": "sellerpagebanner",
+      "Audience or source note": "logged_in_ineligible",
+      "Document entry": "sid ; p4431659.m186180.l211043; p4431659.m186203.l211043; p4431659.m186205.l211043"
+    },
+    {
+      "Placement group": "“Join the Waitlist” placements",
+      "ID source": "sid",
+      "ID": "p4431659.m186205.l211043",
+      "Module name": "sellerphonebannermodule",
+      "Audience or source note": "logged_in_ineligible",
+      "Document entry": "sid ; p4431659.m186180.l211043; p4431659.m186203.l211043; p4431659.m186205.l211043"
+    },
+    {
+      "Placement group": "“Get Started” placements",
+      "ID source": "sid",
+      "ID": "p4431659.m186180.l211043",
+      "Module name": "sellernavmodule",
+      "Audience or source note": "logged_in_eligible",
+      "Document entry": "sid ; p4431659.m186180.l211043; p4431659.m186203.l211043; p4431659.m186205.l211043"
+    },
+    {
+      "Placement group": "“Get Started” placements",
+      "ID source": "sid",
+      "ID": "p4431659.m186203.l211043",
+      "Module name": "sellerpagebanner",
+      "Audience or source note": "logged_in_eligible",
+      "Document entry": "sid ; p4431659.m186180.l211043; p4431659.m186203.l211043; p4431659.m186205.l211043"
+    },
+    {
+      "Placement group": "“Get Started” placements",
+      "ID source": "sid",
+      "ID": "p4431659.m186205.l211043",
+      "Module name": "sellerphonebannermodule",
+      "Audience or source note": "logged_in_eligible",
+      "Document entry": "sid ; p4431659.m186180.l211043; p4431659.m186203.l211043; p4431659.m186205.l211043"
+    }
+  ],
+  "validation": [
+    {
+      "Field": "Event key and platform",
+      "Document entry": "Dweb",
+      "Review gap": "No event key given; this validation block cannot verify every event."
+    },
+    {
+      "Field": "Implementation state",
+      "Document entry": "Implemented",
+      "Review gap": ""
+    },
+    {
+      "Field": "Test environment and date",
+      "Document entry": "November 5th 2026",
+      "Review gap": ""
+    },
+    {
+      "Field": "Validator and engineering POC",
+      "Document entry": "Priyanka Gala",
+      "Review gap": "Document names a person but does not separate validator from POC."
+    },
+    {
+      "Field": "Observed payload or trace",
+      "Document entry": "Not available",
+      "Review gap": "Observed trace unavailable; retain as evidence gap."
+    },
+    {
+      "Field": "Expected versus observed result",
+      "Document entry": "[FIELD BY FIELD COMPARISON AND OUTCOME]",
+      "Review gap": "Field comparison is incomplete."
+    },
+    {
+      "Field": "Validation state",
+      "Document entry": "Validated",
+      "Review gap": ""
+    }
+  ],
+  "openQuestions": [
+    {
+      "Decision or gap": "Assign new page, module, and link IDs; confirm each cp and mi",
+      "Owner": "Engineering",
+      "Document state": "Done",
+      "Next review action": "Record approval or registration evidence."
+    },
+    {
+      "Decision or gap": "Confirm event keys and CJS registrations",
+      "Owner": "Analytics and tracking platform",
+      "Document state": "To be confirmed",
+      "Next review action": "Open"
+    },
+    {
+      "Decision or gap": "Confirm goals, KPIs, priority, and audience versions",
+      "Owner": "Product and analytics",
+      "Document state": "Done",
+      "Next review action": "Record approval or registration evidence."
+    },
+    {
+      "Decision or gap": "Confirm property types, required flags, and sellerName need",
+      "Owner": "Analytics and product",
+      "Document state": "Done",
+      "Next review action": "Record approval or registration evidence."
+    },
+    {
+      "Decision or gap": "Attach observed payloads and validation evidence",
+      "Owner": "Engineering and validator",
+      "Document state": "Not available right now",
+      "Next review action": "Blocking evidence for validated publication."
+    },
+    {
+      "Decision or gap": "Approve final plan and governance review",
+      "Owner": "Product and governance",
+      "Document state": "Done",
+      "Next review action": "Record approval or registration evidence."
+    },
+    {
+      "Decision or gap": "Confirm each proposed event key and CJS registration",
+      "Owner": "Analytics and tracking platform",
+      "Document state": "To be confirmed",
+      "Next review action": "Do not treat proposed keys as approved."
+    },
+    {
+      "Decision or gap": "Attach an observed payload to each validated event and platform",
+      "Owner": "Engineering and validator",
+      "Document state": "Not available",
+      "Next review action": "Validation claim exists but cannot be audited yet."
+    },
+    {
+      "Decision or gap": "Resolve sellername type, regex, need, and privacy classification",
+      "Owner": "Analytics and product",
+      "Document state": "Event rows still say DECIDE",
+      "Next review action": "Plan decision says Done; reconcile the two entries."
+    },
+    {
+      "Decision or gap": "Confirm faqId and audience version on click events",
+      "Owner": "Analytics and engineering",
+      "Document state": "Pending in event rows",
+      "Next review action": "Resolve at event level."
+    },
+    {
+      "Decision or gap": "Confirm engineering state for events with blank status",
+      "Owner": "Engineering",
+      "Document state": "Not recorded",
+      "Next review action": "E02, E05 and E07 have no engineering state in event registry."
+    }
+  ]
+}

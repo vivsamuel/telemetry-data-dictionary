@@ -30,14 +30,14 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: Datadictionary/package-lock.json
+          cache-dependency-path: pilot-app/package-lock.json
 
       - name: Install dependencies
-        working-directory: ./Datadictionary
+        working-directory: ./pilot-app
         run: npm ci
 
       - name: Build React app
-        working-directory: ./Datadictionary
+        working-directory: ./pilot-app
         run: npm run build
 
       - name: Configure GitHub Pages
@@ -46,7 +46,7 @@ jobs:
       - name: Upload build
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./Datadictionary/dist
+          path: ./pilot-app/dist
 
       - name: Deploy website
         id: deployment
