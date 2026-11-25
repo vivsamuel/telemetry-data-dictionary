@@ -1,4 +1,4 @@
-name: Deploy React App to GitHub Pages
+name: Deploy Data Dictionary Apps to GitHub Pages
 
 on:
   push:
@@ -30,15 +30,30 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: pilot-app/package-lock.json
+          cache-dependency-path: |
+            pilot-app/package-lock.json
+            Datadictionary/package-lock.json
 
-      - name: Install dependencies
+      - name: Install current app dependencies
         working-directory: ./pilot-app
         run: npm ci
 
-      - name: Build React app
+      - name: Build current app
         working-directory: ./pilot-app
         run: npm run build
+
+      - name: Install sample app dependencies
+        working-directory: ./Datadictionary
+        run: npm ci
+
+      - name: Build sample app
+        working-directory: ./Datadictionary
+        run: npm run build -- --base /telemetry-data-dictionary/sample/
+
+      - name: Add sample app to Pages artifact
+        run: |
+          mkdir -p pilot-app/dist/sample
+          cp -R Datadictionary/dist/. pilot-app/dist/sample/
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
