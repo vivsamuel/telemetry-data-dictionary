@@ -21,8 +21,8 @@
 .pilot-home .recent table td,.event-page .events-table td{white-space:nowrap;overflow-wrap:normal;word-break:normal;padding:10px 14px}
 .pilot-home .recent table td:first-child,.event-page .events-table td:first-child{min-width:280px}
 .pilot-home .recent table td:nth-child(2){min-width:190px}
-.pilot-home .recent table td:nth-child(5),.event-page .events-table td:nth-child(8){min-width:200px}
-.pilot-home .recent table td:nth-child(7),.event-page .events-table td:nth-child(10){min-width:245px}
+.pilot-home .recent table td:nth-child(5),.event-page .events-table td:nth-child(7){min-width:100px}
+.pilot-home .recent table td:nth-child(7),.event-page .events-table td:nth-child(9){min-width:245px}
 .pilot-home .recent .status,.event-page .events-table .catalog-badge{white-space:nowrap}
 
 .properties-page .properties-table{min-width:1450px;table-layout:auto}
