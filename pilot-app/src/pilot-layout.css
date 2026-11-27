@@ -68,6 +68,14 @@
 .pilot-home .area-details dl div{background:#f3f7ff;border-radius:8px;padding:9px 11px;min-width:0}
 .pilot-home .area-details dt{font-size:11px;color:#61718e;margin-bottom:4px}
 .pilot-home .area-details dd{font-size:13px;font-weight:700;color:#0d2e69;margin:0;overflow-wrap:anywhere}
+.pilot-home .area-detail-section{border-top:1px solid #e7edf6;margin-top:16px;padding-top:12px}
+.pilot-home .area-detail-section h4{font-size:13px;color:#263b5e;margin:0 0 8px}
+.pilot-home .area-detail-section ul{margin:0;padding-left:18px;color:#40516f;font-size:13px;line-height:1.5}
+.pilot-home .area-detail-section li+li{margin-top:4px}
+.pilot-home .area-poc-list{list-style:none;padding:0!important}
+.pilot-home .area-poc-list li{display:flex;justify-content:space-between;gap:12px;border-radius:7px;background:#f7f9fc;padding:7px 9px}
+.pilot-home .area-poc-list li strong{color:#263b5e}
+.pilot-home .area-poc-list li span{color:#718099;text-align:right}
 .pilot-home .event-filter-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-2px 0 15px}
 .pilot-home .event-filter-bar>span{font-size:13px;font-weight:700;color:#344461;margin-right:4px}
 .pilot-home .event-filter-bar button{border:1px solid #ccd8e9;border-radius:20px;background:#fff;color:#24395e;padding:7px 12px;font-size:13px;font-weight:600}
